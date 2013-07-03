@@ -128,10 +128,10 @@ class AutoPaginateNode(template.Node):
         context['page_obj'] = page_obj
         return u''
 
-@register.inclusion_tag('bootstrap_pagination/pagination.html', takes_context=True)
+@register.inclusion_tag('pagination.html', takes_context=True)
 def paginate(context, window=DEFAULT_WINDOW, hashtag=''):
     """
-    Renders the ``pagination/pagination.html`` template, resulting in a
+    Renders the ``pagination.html`` template, resulting in a
     Digg-like display of the available pages, given the current page.  If there
     are too many pages to be displayed before and after the current page, then
     elipses will be used to indicate the undisplayed gap between page numbers.
