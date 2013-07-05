@@ -1,0 +1,6 @@
+*.egg-info
+*~
+*.pyc
+*.py[co]
+.DS_Store
+dist/
