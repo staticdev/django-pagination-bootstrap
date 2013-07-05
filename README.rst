@@ -33,11 +33,11 @@ We need to hook ``django-pagination-bootstrap`` into our project.
 
 3. If it's not already added in your setup, add the request context processor. Note that context processors are set by default implicitly, so to set them explicitly, you need to copy and paste this code into your under the value TEMPLATE_CONTEXT_PROCESSORS::
 
-("django.core.context_processors.auth",
-"django.core.context_processors.debug",
-"django.core.context_processors.i18n",
-"django.core.context_processors.media",
-"django.core.context_processors.request")
+      TEMPLATE_CONTEXT_PROCESSORS = ("django.core.context_processors.auth",
+      "django.core.context_processors.debug",
+      "django.core.context_processors.i18n",
+      "django.core.context_processors.media",
+      "django.core.context_processors.request")
 
 4. Add this line at the top of your template to load the pagination tags::
 
@@ -47,7 +47,7 @@ We need to hook ``django-pagination-bootstrap`` into our project.
 
       {% autopaginate object_list %}
 
-This assumes that you would like to have the default 20 results per page. If you would like to specify your own amount of results per page, you can specify that like so:
+This assumes that you would like to have the default 20 results per page. If you would like to specify your own amount of results per page, you can specify that like so::
 
       {% autopaginate object_list 10 %}
 
@@ -67,14 +67,21 @@ Optional Settings
 In django-pagination, there are no required settings. There are, however, a small set of optional settings useful for changing the default behavior of the pagination tags. Here's an overview:
 
 PAGINATION_DEFAULT_PAGINATION
+
 The default amount of items to show on a page if no number is specified.
+
 PAGINATION_DEFAULT_WINDOW
+
 The number of items to the left and to the right of the current page to display (accounting for ellipses).
+
 PAGINATION_DEFAULT_ORPHANS
+
 The number of orphans allowed. According to the Django documentation, orphans are defined as:
 
-The minimum number of items allowed on the last page, defaults to zero.
+    The minimum number of items allowed on the last page, defaults to zero.
+
 PAGINATION_INVALID_PAGE_RAISES_404
+
 Determines whether an invalid page raises an Http404 or just sets the invalid_page context variable.  True does the former and False does the latter.
 
 Credits
