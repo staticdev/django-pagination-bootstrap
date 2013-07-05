@@ -47,9 +47,10 @@ We need to hook ``django-pagination-bootstrap`` into our project.
 
       {% autopaginate object_list %}
 
+
 This assumes that you would like to have the default 20 results per page. If you would like to specify your own amount of results per page, you can specify that like so::
 
-        {% autopaginate object_list 10 %}
+      {% autopaginate object_list 10 %}
 
 Note that this replaces object_list with the list for the current page, so you can iterate over the object_list like you normally would.
 
