@@ -4,7 +4,7 @@ django-pagination-bootstrap
 .. image:: https://pypip.in/v/django-pagination-bootstrap/badge.png
         :target: https://pypi.python.org/pypi/django-pagination-bootstrap
 
-Django-pagination-bootstrap is an app to easy add pagination in Django, using Twitter Bootstrap's layout.
+Django-pagination-bootstrap is an app to easy add pagination in Django_, using `Twitter Bootstrap`_'s layout.
 
 Installation
 ------------
@@ -81,3 +81,7 @@ Credits
 ------------
 
 This is based on Eric Florenzano's django-pagination 1.0.7 and is an updated version of https://github.com/tgdn/django-bootstrap-pagination for Django 1.4 or higher.
+
+.. _Django: https://www.djangoproject.com/
+.. _Twitter Bootstrap: http://twitter.github.io/bootstrap/
+.. _django-pagination: https://pypi.python.org/pypi/django-pagination
