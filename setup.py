@@ -22,6 +22,7 @@ setup(
     maintainer_email='thiagocavila@gmail.com',
     packages=find_packages(),
     include_package_data=True,
+    zip_safe=False,
     scripts=[],
     url='https://github.com/staticdev/django-pagination-bootstrap',
     license='LICENSE',
@@ -39,6 +40,7 @@ setup(
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
+    keywords='django, bootstrap, pagination',
     install_requires=[
         "Django >= 1.4.0"
     ],
