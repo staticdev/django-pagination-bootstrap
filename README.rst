@@ -21,7 +21,7 @@ We need to hook ``django-pagination-bootstrap`` into our project.
 
       INSTALLED_APPS = (
          ...
-         'pagination-bootstrap',
+         'pagination_bootstrap',
       )
 
 2. Install the pagination middleware. Your settings file might look something like::
