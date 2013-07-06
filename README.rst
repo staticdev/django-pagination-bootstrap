@@ -33,11 +33,13 @@ We need to hook ``django-pagination-bootstrap`` into our project.
 
 3. If it's not already added in your setup, add the request context processor. Note that context processors are set by default implicitly, so to set them explicitly, you need to copy and paste this code into your under the value TEMPLATE_CONTEXT_PROCESSORS::
 
-      TEMPLATE_CONTEXT_PROCESSORS = ("django.core.context_processors.auth",
+      TEMPLATE_CONTEXT_PROCESSORS = (
+      "django.contrib.auth.context_processors.auth",
       "django.core.context_processors.debug",
       "django.core.context_processors.i18n",
       "django.core.context_processors.media",
-      "django.core.context_processors.request")
+      "django.core.context_processors.request"
+      )
 
 4. Add this line at the top of your template to load the pagination tags::
 
