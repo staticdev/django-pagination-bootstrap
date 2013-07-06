@@ -1,4 +1,4 @@
-Version 1.0.3 (06-07-2013)
+Version 1.0.4 (06-07-2013)
 -------------
 
 Fixing documentation TEMPLATE_CONTEXT_PROCESSORS
