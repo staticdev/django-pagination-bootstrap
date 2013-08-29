@@ -1,3 +1,8 @@
+Version 1.0.5 (29-08-2013)
+-------------
+
+Added Bootstrap 3 compliance and a new paginate_bs2 tag give Bootstrap 2 backwards compatibility.
+
 Version 1.0.4 (06-07-2013)
 -------------
 
