@@ -128,7 +128,6 @@ class AutoPaginateNode(template.Node):
         context['page_obj'] = page_obj
         return u''
 
-@register.inclusion_tag('pagination.html', takes_context=True)
 def paginate(context, window=DEFAULT_WINDOW, hashtag=''):
     """
     Renders the ``pagination.html`` template, resulting in a
@@ -248,3 +247,7 @@ def paginate(context, window=DEFAULT_WINDOW, hashtag=''):
         return to_return
     except KeyError, AttributeError:
         return {}
+
+# registers the tags paginate and paginate_bs2 the same function paginate
+register.inclusion_tag('pagination.html', takes_context=True, name='paginate')(paginate)
+register.inclusion_tag('paginate_bs2.html', takes_context=True, name='paginate_bs2')(paginate)
