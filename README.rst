@@ -4,7 +4,7 @@ django-pagination-bootstrap
 .. image:: https://pypip.in/v/django-pagination-bootstrap/badge.png
         :target: https://pypi.python.org/pypi/django-pagination-bootstrap
 
-Django-pagination-bootstrap is an app to easy add pagination in Django_, using `Twitter Bootstrap`_'s layout.
+Django-pagination-bootstrap is an app to easy add pagination in Django_, using `Bootstrap`_'s layout.
 
 Installation
 ------------
@@ -56,11 +56,15 @@ This assumes that you would like to have the default 20 results per page. If you
 
 Note that this replaces object_list with the list for the current page, so you can iterate over the object_list like you normally would.
 
-6. Now you want to display the current page and the available pages, so somewhere after having used autopaginate, use the paginate inclusion tag::
+6. Now you want to display the current page and the available pages, so somewhere after having used autopaginate. If you are using Bootstrap 3, use the paginate inclusion tag::
 
       {% paginate %}
 
 This does not take any arguments, but does assume that you have already called autopaginate, so make sure to do so first.
+
+For Bootstrap 2, just use the version::
+
+      {% paginate_bs2 %}
 
 That's it! You have now paginated object_list and given users of the site a way to navigate between the different pages--all without touching your views.
 
@@ -93,5 +97,5 @@ Credits
 This is based on Eric Florenzano's django-pagination 1.0.7 and is an updated version of https://github.com/tgdn/django-bootstrap-pagination for Django 1.4 or higher.
 
 .. _Django: https://www.djangoproject.com/
-.. _Twitter Bootstrap: http://twitter.github.io/bootstrap/
+.. _Bootstrap: http://getbootstrap.com/
 .. _django-pagination: https://pypi.python.org/pypi/django-pagination
