@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*- 
 from django import template
 from django.http import Http404
-from django.core.paginator import Paginator, InvalidPage, EmptyPage, \
-                                  PageNotAnInteger
+from django.core.paginator import Paginator, InvalidPage, EmptyPage, PageNotAnInteger
 from django.conf import settings
 
 register = template.Library()
