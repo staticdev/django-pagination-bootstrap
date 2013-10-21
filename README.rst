@@ -70,7 +70,7 @@ That's it! You have now paginated object_list and given users of the site a way 
 
 Side effects
 ------------
-A django-paginator instance will be injected in the template context as ``paginator``. You can access it as usual::
+A django-paginator_ instance will be injected in the template context as ``paginator``. You can access it as usual::
 
       page {{ page }} of {{ paginator.num_pages }}
     
