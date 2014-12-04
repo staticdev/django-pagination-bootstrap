@@ -68,6 +68,13 @@ For Bootstrap 2, just use the version::
 
 That's it! You have now paginated object_list and given users of the site a way to navigate between the different pages--all without touching your views.
 
+Side effects
+------------
+A django-paginator_ instance will be injected in the template context as ``paginator``. You can access it as usual::
+
+      page {{ page }} of {{ paginator.num_pages }}
+    
+
 Optional Settings
 ------------
 
@@ -99,3 +106,4 @@ This is based on Eric Florenzano's django-pagination 1.0.7 and is an updated ver
 .. _Django: https://www.djangoproject.com/
 .. _Bootstrap: http://getbootstrap.com/
 .. _django-pagination: https://pypi.python.org/pypi/django-pagination
+.. _django-paginator: https://docs.djangoproject.com/en/dev/topics/pagination/#paginator-objects
