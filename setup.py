@@ -10,10 +10,8 @@ except ImportError:
     from distutils.core import setup, find_packages
 
 
-def read(*parts):
-    filename = os.path.join(os.path.dirname(__file__), *parts)
-    with codecs.open(filename, encoding='utf-8') as fp:
-        return fp.read()
+with open('README.rst', 'rb') as readme:
+    readme_text = readme.read().decode('utf-8')
 
 setup(
     name='django-pagination-bootstrap',
@@ -27,7 +25,7 @@ setup(
     url='https://github.com/staticdev/django-pagination-bootstrap',
     license='LICENSE',
     description="Easy add pagination in Django, using Twitter Bootstrap's layout.",
-    long_description=read('README.rst'),
+    long_description=readme_text,
     classifiers=[
         "Environment :: Web Environment",
         "Framework :: Django",
