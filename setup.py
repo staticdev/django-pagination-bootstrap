@@ -24,7 +24,7 @@ setup(
     scripts=[],
     url='https://github.com/staticdev/django-pagination-bootstrap',
     license='LICENSE',
-    description="Easy add pagination in Django, using Twitter Bootstrap's layout.",
+    description="Easy add pagination in Django, using Bootstrap's layout.",
     long_description=readme_text,
     classifiers=[
         "Environment :: Web Environment",
