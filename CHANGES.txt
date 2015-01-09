@@ -1,3 +1,8 @@
+Version 1.0.7 (09-01-2015)
+-------------
+
+Fixed rst2html.py (docutils 0.8 - for compliance with PyPI) warnings in README.rst.
+
 Version 1.0.6 (08-01-2015)
 -------------
 
