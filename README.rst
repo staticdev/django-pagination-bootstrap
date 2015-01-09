@@ -1,5 +1,5 @@
 django-pagination-bootstrap
-===============
+===========================
 
 .. image:: https://pypip.in/v/django-pagination-bootstrap/badge.png
         :target: https://pypi.python.org/pypi/django-pagination-bootstrap
@@ -10,7 +10,7 @@ Installation
 ------------
 To install ``django-pagination-bootstrap`` simply run::
 
-    pip install django-pagination-bootstrap
+      pip install django-pagination-bootstrap
 
 Configuration
 -------------
@@ -29,7 +29,7 @@ We need to hook ``django-pagination-bootstrap`` into our project.
       MIDDLEWARE_CLASSES = (
           ...
           'pagination_bootstrap.middleware.PaginationMiddleware',
-)
+      )
 
 3. If it's not already added in your setup, add the request context processor. Note that context processors are set by default implicitly, so to set them explicitly, you need to copy and paste this code into your under the value TEMPLATE_CONTEXT_PROCESSORS::
 
@@ -76,7 +76,7 @@ A django-paginator_ instance will be injected in the template context as ``pagin
     
 
 Optional Settings
-------------
+-----------------
 
 In django-pagination, there are no required settings. There are, however, a small set of optional settings useful for changing the default behavior of the pagination tags. Here's an overview:
 
