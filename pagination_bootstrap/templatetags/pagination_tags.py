@@ -43,7 +43,7 @@ def do_autopaginate(parser, token):
         try:
             orphans = int(split[3])
         except ValueError:
-            raise template.TemplateSyntaxError(u'Got %s, but expected integer.'
+            raise template.TemplateSyntaxError('Got %s, but expected integer.'
                 % split[3])
         return AutoPaginateNode(split[1], paginate_by=split[2], orphans=orphans,
             context_var=context_var)
@@ -91,7 +91,7 @@ class AutoPaginateNode(template.Node):
 
         try:
             page_obj = paginator.page(context['request'].page)
-        except InvalidPage, e:
+        except InvalidPage as e:
             if INVALID_PAGE_RAISES_404:
                 raise Http404('Invalid page requested.  If DEBUG were set to ' +
                     'False, an HTTP 404 page would have been shown instead.')
@@ -116,7 +116,7 @@ class AutoPaginateNode(template.Node):
         if page_obj is None:
             context[key] = []
             context['invalid_page'] = True
-            return u''
+            return ''
 
         if self.context_var is not None:
             context[self.context_var] = page_obj.object_list
@@ -125,7 +125,7 @@ class AutoPaginateNode(template.Node):
 
         context['paginator'] = paginator
         context['page_obj'] = page_obj
-        return u''
+        return ''
 
 def paginate(context, window=DEFAULT_WINDOW, hashtag=''):
     """
@@ -239,12 +239,12 @@ def paginate(context, window=DEFAULT_WINDOW, hashtag=''):
             getvars = context['request'].GET.copy()
             if 'page' in getvars:
                 del getvars['page']
-            if len(getvars.keys()) > 0:
+            if len(list(getvars.keys())) > 0:
                 to_return['getvars'] = "&%s" % getvars.urlencode()
             else:
                 to_return['getvars'] = ''
         return to_return
-    except KeyError, AttributeError:
+    except KeyError as AttributeError:
         return {}
 
 # registers the tags paginate and paginate_bs2 the same function paginate
