@@ -6,6 +6,14 @@ django-pagination-bootstrap
 
 Django-pagination-bootstrap is an app to easy add pagination in Django_, using `Bootstrap`_'s layout.
 
+====== UPDATE 03/02/2016 ======
+Pull requests #7 and #8 were merged for compatibility with Django 1.9 and Python 3. Although, testing is needed for it to get a new version in PyPI.
+
+Any help would be very appreciated.
+
+For a more stable version (with no support to Python 3 or Django 1.9) install from PIP.
+======
+
 Installation
 ------------
 To install ``django-pagination-bootstrap`` simply run::
