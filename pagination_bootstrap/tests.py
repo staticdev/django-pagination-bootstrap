@@ -1,8 +1,27 @@
-"""
->>> from django.core.paginator import Paginator
->>> from pagination.templatetags.pagination_tags import paginate
->>> from django.template import Template, Context
+from django.core.paginator import Paginator
+from django.template import Template, Context
+from django.test import TestCase
 
+from .templatetags.pagination_tags import paginate
+
+
+class TestPaginator(TestCase):
+
+    def test_page_obj_one(self):
+        p = Paginator(range(15), 2)
+        pg = paginate({'paginator': p, 'page_obj': p.page(1)})
+        self.assertTrue(pg['pages'], [1, 2, 3, 4, 5, 6, 7, 8])
+        self.assertTrue(pg['records']['first'], 1)
+        self.assertTrue(pg['records']['last'], 2)
+
+    def test_page_obj_eight(self):
+        p = Paginator(range(15), 2)
+        pg = paginate({'paginator': p, 'page_obj': p.page(8)})
+        self.assertTrue(pg['pages'], [1, 2, 3, 4, 5, 6, 7, 8])
+        self.assertTrue(pg['records']['first'], 15)
+        self.assertTrue(pg['records']['last'], 15)
+
+"""
 >>> p = Paginator(range(15), 2)
 >>> pg = paginate({'paginator': p, 'page_obj': p.page(1)})
 >>> pg['pages']
