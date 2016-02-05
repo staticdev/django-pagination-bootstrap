@@ -1,4 +1,7 @@
-from StringIO import StringIO
+try:
+    from StringIO import StringIO
+except ImportError:
+    from io import StringIO
 
 from django.core.handlers.wsgi import WSGIRequest
 from django.core.paginator import Paginator
