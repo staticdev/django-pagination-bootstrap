@@ -100,7 +100,7 @@ class TestTemplatePaginateTags(TestCase):
 
     def test_render_range_by_var_as_name(self):
         t = Template("{% load pagination_tags %}{% autopaginate var by as foo %}{{ foo }}")
-        c = Context({'var': range(21), 'by': 20, 'request': TestHttpRequest()})
+        c = Context({'var': list(range(21)), 'by': 20, 'request': TestHttpRequest()})
         self.assertEqual(t.render(c), u'[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]')
 
 
