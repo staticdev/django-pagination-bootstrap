@@ -1,3 +1,17 @@
+|Travis|_ |Python27|_ |Python35|_ |PyPi|_
+
+.. |Travis| image:: https://api.travis-ci.org/staticdev/django-pagination-bootstrap.svg?branch=master
+.. _Travis: https://travis-ci.org/staticdev/django-pagination-bootstrap
+
+.. |Python27| image:: https://img.shields.io/badge/python-2.7-blue.svg
+.. _Python27: https://badge.fury.io/py/django-pagination-bootstrap
+
+.. |Python35| image:: https://img.shields.io/badge/python-3.5-blue.svg
+.. _Python35: https://badge.fury.io/py/django-pagination-bootstrap
+
+.. |PyPi| image:: https://badge.fury.io/py/django-pagination-bootstrap.svg
+.. _PyPi: https://badge.fury.io/py/django-pagination-bootstrap
+
 django-pagination-bootstrap
 ===========================
 
