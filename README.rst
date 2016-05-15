@@ -12,6 +12,7 @@
 .. |PyPi| image:: https://badge.fury.io/py/django-pagination-bootstrap.svg
 .. _PyPi: https://badge.fury.io/py/django-pagination-bootstrap
 
+
 django-pagination-bootstrap
 ===========================
 
