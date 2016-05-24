@@ -115,7 +115,7 @@ Determines whether an invalid page raises an Http404 or just sets the invalid_pa
 Credits
 ------------
 
-This is based on Eric Florenzano's django-pagination 1.0.7 and is an updated version of https://github.com/tgdn/django-bootstrap-pagination for Django 1.4 or higher.
+This is based on Eric Florenzano's django-pagination 1.0.7 and is an updated version of https://github.com/tgdn/django-bootstrap-pagination for Django 1.5 or higher.
 
 .. _Django: https://www.djangoproject.com/
 .. _Bootstrap: http://getbootstrap.com/
