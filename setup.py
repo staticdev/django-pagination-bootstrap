@@ -42,6 +42,6 @@ setup(
     ],
     keywords='django, bootstrap, pagination',
     install_requires=[
-        "Django >= 1.5.0"
+        "Django >= 1.6.0"
     ],
 )
