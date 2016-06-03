@@ -31,18 +31,17 @@ setup(
         "Framework :: Django",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
-        "Programming Language :: JavaScript",
-        'Programming Language :: Python',
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.3",
         "Programming Language :: Python :: 3.4",
+        "Programming Language :: JavaScript",
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     keywords='django, bootstrap, pagination',
     install_requires=[
-        "Django >= 1.4.0"
+        "Django >= 1.5.0"
     ],
 )
