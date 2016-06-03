@@ -1,3 +1,10 @@
+Version 1.1.0 (03-06-2016)
+-------------
+
+- Better automatic testing.
+- Initial automatic integration with ReadTheDocs.
+- Dropped backwards support with Django 1.4 and 1.5 (use version 1.0.9 if you wish to use older versions).
+
 Version 1.0.9 (15-05-2016)
 -------------
 
