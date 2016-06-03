@@ -1,1 +1,1 @@
-__version__ = '1.0.9'
+from pagination_bootstrap.version import __version__, __url__, version_info
