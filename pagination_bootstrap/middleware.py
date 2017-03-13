@@ -1,3 +1,9 @@
+try:
+    from django.utils.deprecation import MiddlewareMixin
+    object = MiddlewareMixin
+except:
+    pass
+
 def get_page(self):
     """
     A function which will be monkeypatched onto the request to get the current
