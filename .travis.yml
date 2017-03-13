@@ -16,9 +16,8 @@ env:
   - TOXENV="py34-dj110"
   - TOXENV="py35-dj110"
 install:
- - pip install tox
+ - pip install tox codecov
 script:
  - tox -v
 after_success:
- - pip install codecov
  - codecov
