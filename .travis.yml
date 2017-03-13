@@ -20,10 +20,11 @@ env:
   - TOXENV="py35-dj110"
 
 install:
- - pip install virtualenv tox coveralls
+ - pip install virtualenv tox
 
 script:
- - tox -e $TOX_ENV -v
+ - tox -e $TOX_ENV
  
 after_success:
- - coveralls
+ - pip install codecov
+ - codecov
