@@ -1,8 +1,4 @@
-|pyversions| |Travis| |Python27| |Python35| |PyPi|
-
-.. |pyversions| image:: https://img.shields.io/pypi/pyversions/django-sorting-bootstrap.svg
-    :target: https://pypi.python.org/pypi/django-sorting-bootstrap
-    :alt: Python versions supported
+|Travis| |Python27| |Python35| |PyPi|
 
 .. |Travis| image:: https://api.travis-ci.org/staticdev/django-pagination-bootstrap.svg?branch=master
 .. _Travis: https://travis-ci.org/staticdev/django-pagination-bootstrap
