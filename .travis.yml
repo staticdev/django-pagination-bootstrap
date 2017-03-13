@@ -1,10 +1,7 @@
 language: python
-
 python:
   - "3.5"
-
 sudo: false
-
 env:
   - TOXENV="py27-dj17"
   - TOXENV="py33-dj17"
@@ -18,13 +15,10 @@ env:
   - TOXENV="py27-dj110"
   - TOXENV="py34-dj110"
   - TOXENV="py35-dj110"
-
 install:
- - pip install virtualenv tox
-
+ - pip install tox
 script:
  - tox -v
- 
 after_success:
  - pip install codecov
  - codecov
