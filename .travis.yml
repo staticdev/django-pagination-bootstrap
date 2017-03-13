@@ -17,6 +17,6 @@ env:
 install:
  - pip install tox codecov
 script:
- - tox -v
+ - tox
 after_success:
  - codecov
