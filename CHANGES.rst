@@ -1,3 +1,8 @@
+Version 1.2.0 (03-13-2017)
+-------------
+
+- Added support for Django 1.10 and dropped support for 1.6.
+
 Version 1.1.0 (03-06-2016)
 -------------
 
