@@ -1,3 +1,9 @@
+Version 1.2.1 (03-22-2017)
+-------------
+
+- Fixed Django 1.8 < compatibitlity error fixed (thanks to urtzai)
+- Improved readme for different versions of Django (thanks to shadiakiki1986)
+
 Version 1.2.0 (03-13-2017)
 -------------
 
