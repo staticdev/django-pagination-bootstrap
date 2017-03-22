@@ -45,7 +45,9 @@ We need to hook ``django-pagination-bootstrap`` into our project.
           'pagination_bootstrap.middleware.PaginationMiddleware',
       )
 
-3. If it's not already added in your setup, add the request context processor. Note that context processors are set by default implicitly, so to set them explicitly, you need to copy and paste this code into your under the value TEMPLATE_CONTEXT_PROCESSORS::
+3. If it's not already added in your setup, add the request context processor. Note that context processors are set by default implicitly, so to set them explicitly, you need to copy and paste this code into your under the value TEMPLATE_CONTEXT_PROCESSORS.
+
+For pre-1.8 django versions::
 
       TEMPLATE_CONTEXT_PROCESSORS = (
       "django.contrib.auth.context_processors.auth",
@@ -54,6 +56,25 @@ We need to hook ``django-pagination-bootstrap`` into our project.
       "django.core.context_processors.media",
       "django.core.context_processors.request"
       )
+
+For post-1.8 django versions::
+
+      TEMPLATES = [
+          {
+              "BACKEND": "django.template.backends.django.DjangoTemplates",
+              "DIRS": [],
+              "APP_DIRS": True,
+              "OPTIONS": {
+                  "context_processors": [
+                      "django.template.context_processors.debug",
+                      "django.template.context_processors.request",
+                      "django.contrib.auth.context_processors.auth",
+                      "django.template.context_processors.i18n",
+                      "django.template.context_processors.media",
+                  ],
+              },
+          },
+      ]
 
 4. Add this line at the top of your template to load the pagination tags::
 
