@@ -4,10 +4,12 @@ import sys
 import os
 import django
 from django.conf import settings
-
+from django.test.utils import get_runner
 
 APP_NAME = 'pagination_bootstrap'
 
+# set TEMPLATE_CONTEXT_PROCESSORS or TEMPLATES, based on django version
+# http://stackoverflow.com/a/16805125/4126114
 if django.VERSION < (1, 8):
     settings.configure(
         DEBUG=True,
@@ -83,7 +85,6 @@ else:
         ]
     )
 
-from django.test.utils import get_runner
 
 if hasattr(django, 'setup'):
     django.setup()
