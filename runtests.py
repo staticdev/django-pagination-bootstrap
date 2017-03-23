@@ -1,39 +1,37 @@
 #!/usr/bin/env python
 
 import sys
+import os
 import django
 from django.conf import settings
-from django import get_version
+from django.test.utils import get_runner
 
 APP_NAME = 'pagination_bootstrap'
 
-settings.configure(
-    DEBUG=True,
-    DATABASES={
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-        }
-    },
-    USE_TZ=True,
-    ROOT_URLCONF='{0}.tests'.format(APP_NAME),
-    MIDDLEWARE_CLASSES=(
-        'pagination_bootstrap.middleware.PaginationMiddleware',
-    ),
-    SITE_ID=1,
-    INSTALLED_APPS=(
-        'django.contrib.auth',
-        'django.contrib.contenttypes',
-        'django.contrib.sessions',
-        'django.contrib.admin',
-        'django.contrib.sites',
-        APP_NAME,
-    ),
-)
-
 # set TEMPLATE_CONTEXT_PROCESSORS or TEMPLATES, based on django version
 # http://stackoverflow.com/a/16805125/4126114
-if get_version() < '1.8':
+if django.VERSION < (1, 8):
     settings.configure(
+        DEBUG=True,
+        DATABASES={
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+            }
+        },
+        USE_TZ=True,
+        ROOT_URLCONF='{0}.tests'.format(APP_NAME),
+        MIDDLEWARE_CLASSES=(
+            'pagination_bootstrap.middleware.PaginationMiddleware',
+        ),
+        SITE_ID=1,
+        INSTALLED_APPS=(
+            'django.contrib.auth',
+            'django.contrib.contenttypes',
+            'django.contrib.sessions',
+            'django.contrib.admin',
+            'django.contrib.sites',
+            APP_NAME,
+        ),
         TEMPLATE_CONTEXT_PROCESSORS = (
             "django.contrib.auth.context_processors.auth",
             "django.core.context_processors.debug",
@@ -44,25 +42,49 @@ if get_version() < '1.8':
     )
 else:
     settings.configure(
+        DEBUG=True,
+        DATABASES={
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+            }
+        },
+        USE_TZ=True,
+        ROOT_URLCONF='{0}.tests'.format(APP_NAME),
+        MIDDLEWARE=[
+            'pagination_bootstrap.middleware.PaginationMiddleware',
+        ],
+        SITE_ID=1,
+        INSTALLED_APPS=(
+            'django.contrib.auth',
+            'django.contrib.contenttypes',
+            'django.contrib.sessions',
+            'django.contrib.admin',
+            'django.contrib.sites',
+            APP_NAME,
+        ),
         TEMPLATES = [
             {
                 "BACKEND": "django.template.backends.django.DjangoTemplates",
-                "DIRS": [],
-                "APP_DIRS": True,
+                "DIRS": [
+                    os.path.join(os.path.dirname(__file__), "templates"),
+                ],
                 "OPTIONS": {
                     "context_processors": [
-                        "django.contrib.auth.context_processors.auth",
                         "django.template.context_processors.debug",
+                        "django.template.context_processors.request",
+                        "django.contrib.auth.context_processors.auth",
                         "django.template.context_processors.i18n",
                         "django.template.context_processors.media",
-                        "django.template.context_processors.request",
+                    ],
+                    "loaders": [
+                            "django.template.loaders.filesystem.Loader",
+                            "django.template.loaders.app_directories.Loader",
                     ],
                 },
             },
         ]
     )
 
-from django.test.utils import get_runner
 
 if hasattr(django, 'setup'):
     django.setup()

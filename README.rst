@@ -1,7 +1,7 @@
 |Travis| |Python27| |Python35| |PyPi|
 
 .. |Travis| image:: https://api.travis-ci.org/staticdev/django-pagination-bootstrap.svg?branch=master
-    :target: https://travis-ci.org/staticdev/django-pagination-bootstrap
+   :target: https://travis-ci.org/staticdev/django-pagination-bootstrap
 
 .. |Python27| image:: https://img.shields.io/badge/python-2.7-blue.svg
    :target: https://badge.fury.io/py/django-pagination-bootstrap
