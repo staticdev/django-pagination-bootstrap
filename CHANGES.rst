@@ -1,3 +1,9 @@
+Version 1.2.2 (03-23-2017)
+-------------
+
+- Fixed Django 1.10 issue with _num_pages and _count attributes (thanks to urtzai)
+- More readme fixes (thanks to shadiakiki1986)
+
 Version 1.2.1 (03-22-2017)
 -------------
 
