@@ -14,9 +14,13 @@ env:
 
 install:
     - pip install -q $DJANGO
+    - pip install coveralls
 
 script:
-  - python runtests.py
+  - coverage run runtests.py
+  
+after_success:
+  - coveralls
 
 matrix:
   exclude:
