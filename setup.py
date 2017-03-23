@@ -4,6 +4,7 @@ import pagination_bootstrap
 
 import os
 import codecs
+import uuid
 from pip.req import parse_requirements
 try:
     from setuptools import setup, find_packages
