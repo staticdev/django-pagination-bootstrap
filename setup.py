@@ -4,10 +4,21 @@ import pagination_bootstrap
 
 import os
 import codecs
+from pip.req import parse_requirements
 try:
     from setuptools import setup, find_packages
 except ImportError:
     from distutils.core import setup, find_packages
+    
+def get_requirements(source):
+
+    try:
+        install_reqs = parse_requirements(source, session=uuid.uuid1())
+    except TypeError:
+        # Older version of pip.
+        install_reqs = parse_requirements(source)
+    required = set([str(ir.req) for ir in install_reqs])
+    return required
 
 
 with open('README.rst', 'rb') as readme:
@@ -21,11 +32,12 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
-    scripts=[],
     url='https://github.com/staticdev/django-pagination-bootstrap',
     license='LICENSE',
     description="Easy add pagination in Django, using Bootstrap's layout.",
     long_description=readme_text,
+    keywords='django, bootstrap, pagination',
+    install_requires=get_requirements('requirements.txt'),
     classifiers=[
         "Environment :: Web Environment",
         "Framework :: Django",
@@ -39,9 +51,5 @@ setup(
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
         "Topic :: Software Development :: Libraries :: Python Modules",
-    ],
-    keywords='django, bootstrap, pagination',
-    install_requires=[
-        "Django >= 1.6.0"
     ],
 )
