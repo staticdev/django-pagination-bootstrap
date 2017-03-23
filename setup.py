@@ -9,16 +9,7 @@ try:
     from setuptools import setup, find_packages
 except ImportError:
     from distutils.core import setup, find_packages
-    
-def get_requirements(source):
 
-    try:
-        install_reqs = parse_requirements(source, session=uuid.uuid1())
-    except TypeError:
-        # Older version of pip.
-        install_reqs = parse_requirements(source)
-    required = set([str(ir.req) for ir in install_reqs])
-    return required
 
 def get_requirements(source):
 
@@ -33,6 +24,7 @@ def get_requirements(source):
 
 with open('README.rst', 'rb') as readme:
     readme_text = readme.read().decode('utf-8')
+
 
 setup(
     name='django-pagination-bootstrap',
