@@ -90,7 +90,7 @@ class AutoPaginateNode(template.Node):
         paginator = Paginator(value, paginate_by, self.orphans)
 
         try:
-            page_obj = paginator.page(context['request'].GET.get('page'))
+            page_obj = paginator.page(context['request'].page))
         except InvalidPage as e:
             if INVALID_PAGE_RAISES_404:
                 raise Http404('Invalid page requested.  If DEBUG were set to ' +
