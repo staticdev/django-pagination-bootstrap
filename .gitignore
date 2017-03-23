@@ -4,3 +4,4 @@
 *.py[co]
 .DS_Store
 dist/
+.coverage
