@@ -1,0 +1,5 @@
+[report]
+include =
+    django_pagination_bootstrap/*
+omit =
+    */test*
