@@ -1,3 +1,10 @@
+Version 1.2.3 (03-27-2017)
+-------------
+
+- Fixed PyPI broken file (requirements.txt)
+- Simplified version and setup files.
+
+
 Version 1.2.2 (03-23-2017)
 -------------
 
