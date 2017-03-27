@@ -14,7 +14,6 @@ env:
 
 install:
     - pip install -q $DJANGO
-    - pip install -r requirements.txt
     - pip install coveralls
 
 script:
