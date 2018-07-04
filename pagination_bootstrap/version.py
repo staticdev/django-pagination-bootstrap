@@ -1,9 +1,4 @@
 # Functions from coverage under the Apache License: http://www.apache.org/licenses/LICENSE-2.0
-# This file is exec'ed in setup.py, don't import anything!
-
-# Same semantics as sys.version_info.
-version_info = (1, 2, 1, 'final', 0)
-
 
 def _make_version(major, minor, micro, releaselevel, serial):
     """Create a readable version string from version_info tuple components."""
@@ -25,6 +20,7 @@ def _make_url(major, minor, micro, releaselevel, serial):
         url += "/en/" + _make_version(major, minor, micro, releaselevel, serial)
     return url
 
-
+# Same semantics as sys.version_info.
+version_info = (1, 2, 4, 'final', 0)
 __version__ = _make_version(*version_info)
 __url__ = _make_url(*version_info)
