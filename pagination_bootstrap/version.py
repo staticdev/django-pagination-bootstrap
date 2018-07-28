@@ -21,6 +21,6 @@ def _make_url(major, minor, micro, releaselevel, serial):
     return url
 
 # Same semantics as sys.version_info.
-version_info = (1, 2, 4, 'final', 0)
+version_info = (1, 3, 0, 'final', 0)
 __version__ = _make_version(*version_info)
 __url__ = _make_url(*version_info)
