@@ -9,12 +9,14 @@ from django.template import Template, Context
 from django.test import TestCase
 
 from .middleware import PaginationMiddleware
+
 from .paginator import (
     InfinitePaginator,
     InfinitePage,
     FinitePaginator,
     FinitePage,
 )
+
 from .templatetags.pagination_tags import paginate
 
 

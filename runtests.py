@@ -19,7 +19,7 @@ if django.VERSION < (1, 8):
             }
         },
         USE_TZ=True,
-        ROOT_URLCONF='{0}.tests'.format(APP_NAME),
+        #ROOT_URLCONF='{0}.tests'.format(APP_NAME),
         MIDDLEWARE_CLASSES=(
             'pagination_bootstrap.middleware.PaginationMiddleware',
         ),
@@ -49,7 +49,7 @@ else:
             }
         },
         USE_TZ=True,
-        ROOT_URLCONF='{0}.tests'.format(APP_NAME),
+        #ROOT_URLCONF='{0}.tests'.format(APP_NAME),
         MIDDLEWARE=[
             'pagination_bootstrap.middleware.PaginationMiddleware',
         ],
