@@ -10,6 +10,10 @@ homepage = "https://github.com/staticdev/django-pagination-bootstrap"
 classifiers = [
     "Environment :: Web Environment",
     "Framework :: Django",
+    "Framework :: Django :: 2.0",
+    "Framework :: Django :: 2.1",
+    "Framework :: Django :: 2.2",
+    "Framework :: Django :: 3.0",
     "Operating System :: OS Independent",
     "Development Status :: 5 - Production/Stable",
     "Programming Language :: Python",
