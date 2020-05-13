@@ -1,7 +1,20 @@
+Version 2.0.0 (05-13-2020)
+-------------
+
+- Added poetry / PEP 517/518 compliance.
+- Black formatting.
+- Dropped python2 and Django 1.X.
+- Added dependabot.
+
+Version 1.3.0 (10-09-2018)
+-------------
+
+- Compatibility with newer versions of Django until 2.1. Merge request #31.
+
 Version 1.2.4 (03-27-2017)
 -------------
 
-- Fixed TravisCI config
+- Fixed TravisCI config.
 
 Version 1.2.3 (03-27-2017)
 -------------
