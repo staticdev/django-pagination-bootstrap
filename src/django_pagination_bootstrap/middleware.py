@@ -1,8 +1,10 @@
 try:
     from django.utils.deprecation import MiddlewareMixin
+
     object = MiddlewareMixin
 except:
     pass
+
 
 def get_page(self):
     """
@@ -10,7 +12,7 @@ def get_page(self):
     integer representing the current page.
     """
     try:
-        return int(self.GET.get('page'))
+        return int(self.GET.get("page"))
     except (KeyError, ValueError, TypeError):
         return 1
 
@@ -20,5 +22,6 @@ class PaginationMiddleware(object):
     Inserts a variable representing the current page onto the request object if
     it exists in either **GET** or **POST** portions of the request.
     """
+
     def process_request(self, request):
         request.__class__.page = property(get_page)

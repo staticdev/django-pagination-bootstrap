@@ -1,27 +1,29 @@
-|Travis| |Python27| |Python35| |PyPi|
+|Travis| |Python Version| |PyPi| |Black|
 
 .. |Travis| image:: https://api.travis-ci.org/staticdev/django-pagination-bootstrap.svg?branch=master
    :target: https://travis-ci.org/staticdev/django-pagination-bootstrap
 
-.. |Python27| image:: https://img.shields.io/badge/python-2.7-blue.svg
-   :target: https://badge.fury.io/py/django-pagination-bootstrap
-
-.. |Python35| image:: https://img.shields.io/badge/python-3.5-blue.svg
-   :target: https://badge.fury.io/py/django-pagination-bootstrap
+.. |Python Version| image:: https://img.shields.io/pypi/pyversions/django-pagination-bootstrap
+   :target: https://pypi.org/project/django-pagination-bootstrap
+   :alt: Python Version
 
 .. |PyPi| image:: https://badge.fury.io/py/django-pagination-bootstrap.svg
    :target: https://badge.fury.io/py/django-pagination-bootstrap
 
+.. |Black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
+   :target: https://github.com/psf/black
+   :alt: Black
 
 django-pagination-bootstrap
 ===========================
 
 Django-pagination-bootstrap is an app to easy add pagination in Django_, using `Bootstrap`_'s layout.
 
-======
+Note: This library currently works with Python 3.6+, Django 2.0+ and Bootstrap 3+. For older versions, please use version 1.3.0.
 
 Installation
 ------------
+
 To install ``django-pagination-bootstrap`` simply run::
 
       pip install django-pagination-bootstrap
@@ -31,33 +33,21 @@ Configuration
 
 We need to hook ``django-pagination-bootstrap`` into our project.
 
-1. Put ``pagination-bootstrap`` into your ``INSTALLED_APPS`` at settings module::
+1. Put ``django-pagination-bootstrap`` into your ``INSTALLED_APPS`` at settings module::
 
       INSTALLED_APPS = (
          ...
-         'pagination_bootstrap',
+         'django-pagination_bootstrap',
       )
 
 2. Install the pagination middleware. Your settings file might look something like::
 
       MIDDLEWARE_CLASSES = (
           ...
-          'pagination_bootstrap.middleware.PaginationMiddleware',
+          'django_pagination_bootstrap.middleware.PaginationMiddleware',
       )
 
 3. If it's not already added in your setup, add the request context processor. Note that context processors are set by default implicitly, so to set them explicitly, you need to copy and paste this code into your under the value TEMPLATE_CONTEXT_PROCESSORS.
-
-For pre-1.8 django versions::
-
-      TEMPLATE_CONTEXT_PROCESSORS = (
-      "django.contrib.auth.context_processors.auth",
-      "django.core.context_processors.debug",
-      "django.core.context_processors.i18n",
-      "django.core.context_processors.media",
-      "django.core.context_processors.request"
-      )
-
-For post-1.8 django versions::
 
       TEMPLATES = [
           {
@@ -96,10 +86,6 @@ Note that this replaces object_list with the list for the current page, so you c
       {% paginate %}
 
 This does not take any arguments, but does assume that you have already called autopaginate, so make sure to do so first.
-
-For Bootstrap 2, just use the version::
-
-      {% paginate_bs2 %}
 
 That's it! You have now paginated object_list and given users of the site a way to navigate between the different pages--all without touching your views.
 
