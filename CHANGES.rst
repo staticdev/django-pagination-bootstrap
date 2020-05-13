@@ -6,7 +6,7 @@ Version 2.0.0 (05-13-2020)
 
 - Added poetry / PEP 517/518 compliance.
 - Black formatting.
-- Dropped python2 and Django 1.X.
+- Dropped Python 2, Django 1.X and Bootstrap 2.
 - Added dependabot.
 - Github Actions Dependabot/release/release-drafter.
 
