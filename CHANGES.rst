@@ -8,6 +8,7 @@ Version 2.0.0 (05-13-2020)
 - Black formatting.
 - Dropped python2 and Django 1.X.
 - Added dependabot.
+- Github Actions Dependabot/release/release-drafter.
 
 Version 1.3.0 (10-09-2018)
 --------------------------
