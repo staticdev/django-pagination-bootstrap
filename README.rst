@@ -115,29 +115,28 @@ A django-paginator_ instance will be injected in the template context as ``pagin
 
 .. code-block:: python
 
-      page {{ page }} of {{ paginator.num_pages }}
-    
+   page {{ page }} of {{ paginator.num_pages }}
 
 Optional Settings
 =================
 
 In django-pagination, there are no required settings. There are, however, a small set of optional settings useful for changing the default behavior of the pagination tags. Here's an overview:
 
-PAGINATION_DEFAULT_PAGINATION
+* PAGINATION_DEFAULT_PAGINATION
 
 The default amount of items to show on a page if no number is specified.
 
-PAGINATION_DEFAULT_WINDOW
+* PAGINATION_DEFAULT_WINDOW
 
 The number of items to the left and to the right of the current page to display (accounting for ellipses).
 
-PAGINATION_DEFAULT_ORPHANS
+* PAGINATION_DEFAULT_ORPHANS
 
 The number of orphans allowed. According to the Django documentation, orphans are defined as:
 
-    The minimum number of items allowed on the last page, defaults to zero.
+   The minimum number of items allowed on the last page, defaults to zero.
 
-PAGINATION_INVALID_PAGE_RAISES_404
+* PAGINATION_INVALID_PAGE_RAISES_404
 
 Determines whether an invalid page raises an Http404 or just sets the invalid_page context variable.  True does the former and False does the latter.
 
