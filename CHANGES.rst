@@ -1,5 +1,12 @@
+=========
 Changelog
 =========
+
+Version 2.0.1 (05-14-2020)
+--------------------------
+
+* Improved documentation.
+* Bump toml dependency.
 
 Version 2.0.0 (05-13-2020)
 --------------------------
