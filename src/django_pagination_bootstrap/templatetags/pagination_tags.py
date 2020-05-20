@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 from django import template
-from django.http import Http404
-from django.core.paginator import Paginator, InvalidPage, EmptyPage, PageNotAnInteger
 from django.conf import settings
+from django.core.paginator import EmptyPage
+from django.core.paginator import InvalidPage
+from django.core.paginator import PageNotAnInteger
+from django.core.paginator import Paginator
+from django.http import Http404
 
 register = template.Library()
 
@@ -59,16 +62,16 @@ def do_autopaginate(parser, token):
 class AutoPaginateNode(template.Node):
     """
     Emits the required objects to allow for Digg-style pagination.
-    
+
     First, it looks in the current context for the variable specified, and using
-    that object, it emits a simple ``Paginator`` and the current page object 
+    that object, it emits a simple ``Paginator`` and the current page object
     into the context names ``paginator`` and ``page_obj``, respectively.
-    
+
     It will then replace the variable specified with only the objects for the
     current page.
-    
+
     .. note::
-        
+
         It is recommended to use *{% paginate %}* after using the autopaginate
         tag.  If you choose not to use *{% paginate %}*, make sure to display the
         list of available pages, or else the application may seem to be buggy.
@@ -147,20 +150,20 @@ def paginate(context, window=DEFAULT_WINDOW, hashtag=""):
     Digg-like display of the available pages, given the current page.  If there
     are too many pages to be displayed before and after the current page, then
     elipses will be used to indicate the undisplayed gap between page numbers.
-    
+
     Requires one argument, ``context``, which should be a dictionary-like data
     structure and must contain the following keys:
-    
+
     ``paginator``
         A ``Paginator`` or ``QuerySetPaginator`` object.
-    
+
     ``page_obj``
-        This should be the result of calling the page method on the 
+        This should be the result of calling the page method on the
         aforementioned ``Paginator`` or ``QuerySetPaginator`` object, given
         the current page.
-    
+
     This same ``context`` dictionary-like data structure may also include:
-    
+
     ``getvars``
         A dictionary of all of the **GET** parameters in the current request.
         This is useful to maintain certain types of state, even when requesting
