@@ -1,9 +1,4 @@
-try:
-    from django.utils.deprecation import MiddlewareMixin
-
-    object = MiddlewareMixin
-except:
-    pass
+"""django-pagination-bootstrap middleware."""
 
 
 def get_page(self):
@@ -17,8 +12,9 @@ def get_page(self):
         return 1
 
 
-class PaginationMiddleware(object):
-    """
+class PaginationMiddleware:
+    """Pagination Middleware class.
+
     Inserts a variable representing the current page onto the request object if
     it exists in either **GET** or **POST** portions of the request.
     """
