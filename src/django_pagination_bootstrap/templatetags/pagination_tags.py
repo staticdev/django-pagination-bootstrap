@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
+"""django-bootstrap-pagination tags."""
 from django import template
 from django.conf import settings
 from django.core.paginator import EmptyPage
 from django.core.paginator import InvalidPage
-from django.core.paginator import PageNotAnInteger
 from django.core.paginator import Paginator
 from django.http import Http404
 
@@ -18,9 +18,7 @@ INVALID_PAGE_FIXUP = getattr(settings, "PAGINATION_INVALID_PAGE_FIXUP", False)
 
 @register.tag(name="autopaginate")
 def do_autopaginate(parser, token):
-    """
-    Splits the arguments to the autopaginate tag and formats them correctly.
-    """
+    """Splits the arguments to the autopaginate tag and formats them correctly."""
     split = token.split_contents()
     as_index = None
     context_var = None
@@ -60,8 +58,7 @@ def do_autopaginate(parser, token):
 
 
 class AutoPaginateNode(template.Node):
-    """
-    Emits the required objects to allow for Digg-style pagination.
+    """Emits the required objects to allow for Digg-style pagination.
 
     First, it looks in the current context for the variable specified, and using
     that object, it emits a simple ``Paginator`` and the current page object
@@ -84,6 +81,7 @@ class AutoPaginateNode(template.Node):
         orphans=DEFAULT_ORPHANS,
         context_var=None,
     ):
+        """Constructor."""
         self.queryset_var = template.Variable(queryset_var)
         if isinstance(paginate_by, int):
             self.paginate_by = paginate_by
@@ -145,30 +143,30 @@ class AutoPaginateNode(template.Node):
 
 
 def paginate(context, window=DEFAULT_WINDOW, hashtag=""):
-    """
-    Renders the ``pagination.html`` template, resulting in a
-    Digg-like display of the available pages, given the current page.  If there
-    are too many pages to be displayed before and after the current page, then
+    """Renders the ``pagination.html`` template.
+
+    The result is a Digg-like display of the available pages, given the current page.
+    If there are too many pages to be displayed before and after the current page, then
     elipses will be used to indicate the undisplayed gap between page numbers.
 
     Requires one argument, ``context``, which should be a dictionary-like data
     structure and must contain the following keys:
 
     ``paginator``
-        A ``Paginator`` or ``QuerySetPaginator`` object.
+    A ``Paginator`` or ``QuerySetPaginator`` object.
 
     ``page_obj``
-        This should be the result of calling the page method on the
-        aforementioned ``Paginator`` or ``QuerySetPaginator`` object, given
-        the current page.
+    This should be the result of calling the page method on the
+    aforementioned ``Paginator`` or ``QuerySetPaginator`` object, given
+    the current page.
 
     This same ``context`` dictionary-like data structure may also include:
 
     ``getvars``
-        A dictionary of all of the **GET** parameters in the current request.
-        This is useful to maintain certain types of state, even when requesting
-        a different page.
-        """
+    A dictionary of all of the **GET** parameters in the current request.
+    This is useful to maintain certain types of state, even when requesting
+    a different page.
+    """
     try:
         paginator = context["paginator"]
         page_obj = context["page_obj"]
@@ -261,7 +259,7 @@ def paginate(context, window=DEFAULT_WINDOW, hashtag=""):
             else:
                 to_return["getvars"] = ""
         return to_return
-    except KeyError as AttributeError:
+    except KeyError:
         return {}
 
 

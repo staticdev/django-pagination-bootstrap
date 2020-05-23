@@ -4,7 +4,7 @@ django-pagination-bootstrap
 
 .. badges-begin
 
-|Travis| |Python Version| |PyPi| |Black|
+|Travis| |Python Version| |PyPi| |Black| |pre-commit|
 
 .. |Travis| image:: https://api.travis-ci.org/staticdev/django-pagination-bootstrap.svg?branch=master
    :target: https://travis-ci.org/staticdev/django-pagination-bootstrap
@@ -12,13 +12,15 @@ django-pagination-bootstrap
 .. |Python Version| image:: https://img.shields.io/pypi/pyversions/django-pagination-bootstrap
    :target: https://pypi.org/project/django-pagination-bootstrap
    :alt: Python Version
-
 .. |PyPi| image:: https://badge.fury.io/py/django-pagination-bootstrap.svg
    :target: https://badge.fury.io/py/django-pagination-bootstrap
-
+   :alt: PyPI
 .. |Black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
    :target: https://github.com/psf/black
    :alt: Black
+.. |pre-commit| image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
+   :target: https://github.com/pre-commit/pre-commit
+   :alt: pre-commit
 
 Django-pagination-bootstrap is an app to easy add pagination in Django_, using `Bootstrap`_'s layout.
 
@@ -44,7 +46,7 @@ We need to hook ``django-pagination-bootstrap`` into our project.
 
    INSTALLED_APPS = (
        # other apps
-       "django-pagination_bootstrap",
+       "django_pagination_bootstrap",
    )
 
 2. Install the pagination middleware. Your settings file might look something like:
@@ -56,22 +58,18 @@ We need to hook ``django-pagination-bootstrap`` into our project.
        "django_pagination_bootstrap.middleware.PaginationMiddleware",
    )
 
-3. If it's not already added in your setup, add the request context processor. Note that context processors are set by default implicitly, so to set them explicitly, you need to copy and paste this code into your under the value TEMPLATE_CONTEXT_PROCESSORS.
+3. Guarantee you have ``django.template.context_processors.request`` on settings.py:
 
 .. code-block:: python
 
    TEMPLATES = [
        {
-           "BACKEND": "django.template.backends.django.DjangoTemplates",
-           "DIRS": [],
-           "APP_DIRS": True,
+           # ...
            "OPTIONS": {
                "context_processors": [
-                   "django.template.context_processors.debug",
-                   "django.template.context_processors.request",
-                   "django.contrib.auth.context_processors.auth",
-                   "django.template.context_processors.i18n",
-                   "django.template.context_processors.media",
+                   # ...
+                   "django.template.context_processors.request"
+                   # ...
                ],
            },
        },
@@ -111,7 +109,7 @@ That's it! You have now paginated object_list and given users of the site a way 
 Side effects
 ============
 
-A django-paginator_ instance will be injected in the template context as ``paginator``. You can access it as usual::
+A django-paginator_ instance will be injected in the template context as ``paginator``. You can access it as usual:
 
 .. code-block:: python
 

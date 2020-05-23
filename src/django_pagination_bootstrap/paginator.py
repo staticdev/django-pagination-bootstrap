@@ -1,3 +1,4 @@
+"""paginator classes."""
 from django.core.paginator import EmptyPage
 from django.core.paginator import Page
 from django.core.paginator import PageNotAnInteger
@@ -5,9 +6,9 @@ from django.core.paginator import Paginator
 
 
 class InfinitePaginator(Paginator):
-    """
-    Paginator designed for cases when it's not important to know how many total
-    pages.  This is useful for any object_list that has no count() method or can
+    """Paginator designed for when it's not important to know how many total pages.
+
+    This is useful for any object_list that has no count() method or can
     be used to improve performance for MySQL by removing counts.
 
     The orphans parameter has been removed for simplicity and there's a link
@@ -21,6 +22,7 @@ class InfinitePaginator(Paginator):
         allow_empty_first_page=True,
         link_template="/page/%d/",
     ):
+        """Constructor."""
         orphans = 0  # no orphans
         super(InfinitePaginator, self).__init__(
             object_list, per_page, orphans, allow_empty_first_page
@@ -28,15 +30,13 @@ class InfinitePaginator(Paginator):
         try:
             # no count or num pages
             del self._num_pages, self._count
-        except:
+        except NameError:
             pass
         # bonus links
         self.link_template = link_template
 
     def validate_number(self, number):
-        """
-        Validates the given 1-based page number.
-        """
+        """Validates the given 1-based page number."""
         try:
             number = int(number)
         except ValueError:
@@ -62,25 +62,21 @@ class InfinitePaginator(Paginator):
         return InfinitePage(page_items, number, self)
 
     def _get_count(self):
-        """
-        Returns the total number of objects, across all pages.
-        """
+        """Returns the total number of objects, across all pages."""
         raise NotImplementedError
 
     count = property(_get_count)
 
     def _get_num_pages(self):
-        """
-        Returns the total number of pages.
-        """
+        """Returns the total number of pages."""
         raise NotImplementedError
 
     num_pages = property(_get_num_pages)
 
     def _get_page_range(self):
-        """
-        Returns a 1-based range of pages for iterating through within
-        a template for loop.
+        """Returns a 1-based range of pages.
+
+        It is used for iterating through within a template for loop.
         """
         raise NotImplementedError
 
@@ -92,21 +88,17 @@ class InfinitePage(Page):
         return "<Page %s>" % self.number
 
     def has_next(self):
-        """
-        Checks for one more item than last on this page.
-        """
+        """Checks for one more item than last on this page."""
         try:
-            next_item = self.paginator.object_list[
-                self.number * self.paginator.per_page
-            ]
+            self.paginator.object_list[self.number * self.paginator.per_page]
         except IndexError:
             return False
         return True
 
     def end_index(self):
-        """
-        Returns the 1-based index of the last object on this page,
-        relative to total objects found (hits).
+        """Returns the 1-based index of the last object on this page.
+
+        This index is relative to total objects found (hits).
         """
         return (self.number - 1) * self.paginator.per_page + len(self.object_list)
 
@@ -123,8 +115,7 @@ class InfinitePage(Page):
 
 
 class FinitePaginator(InfinitePaginator):
-    """
-    Paginator for cases when the list of items is already finite.
+    """Paginator for cases when the list of items is already finite.
 
     A good example is a list generated from an API call. This is a subclass
     of InfinitePaginator because we have no idea how many items exist in the
@@ -148,6 +139,7 @@ class FinitePaginator(InfinitePaginator):
         allow_empty_first_page=True,
         link_template="/page/%d/",
     ):
+        """Constructor."""
         super(FinitePaginator, self).__init__(
             object_list_plus, per_page, allow_empty_first_page, link_template
         )
@@ -164,9 +156,7 @@ class FinitePaginator(InfinitePaginator):
         return number
 
     def page(self, number):
-        """
-        Returns a Page object for the given 1-based page number.
-        """
+        """Returns a Page object for the given 1-based page number."""
         number = self.validate_number(number)
         # remove the extra item(s) when creating the page
         page_items = self.object_list[: self.per_page]
@@ -175,19 +165,17 @@ class FinitePaginator(InfinitePaginator):
 
 class FinitePage(InfinitePage):
     def has_next(self):
-        """
-        Checks for one more item than last on this page.
-        """
+        """Checks for one more item than last on this page."""
         try:
-            next_item = self.paginator.object_list[self.paginator.per_page]
+            self.paginator.object_list[self.paginator.per_page]
         except IndexError:
             return False
         return True
 
     def start_index(self):
+        """Returns the 1-based index of the first object on this page.
+
+        This index is relative to total objects in the paginator.
         """
-        Returns the 1-based index of the first object on this page,
-        relative to total objects in the paginator.
-        """
-        ## TODO should this holler if you haven't defined the offset?
+        # TODO should this holler if you haven't defined the offset?
         return self.paginator.offset
