@@ -40,6 +40,16 @@ coverage = {extras = ["toml"], version = "^5.1"}
 safety = "^1.9.0"
 mypy = "^0.770"
 
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["django_pagination_bootstrap"]
+
+[tool.coverage.report]
+show_missing = true
+
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
