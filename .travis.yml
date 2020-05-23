@@ -14,11 +14,7 @@ before_install:
 
 install:
   - pip install -q $DJANGO
-  - pip install coveralls
   - poetry install
 
 script:
   - coverage run runtests.py
-
-after_success:
-  - coveralls
