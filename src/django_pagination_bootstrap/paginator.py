@@ -30,7 +30,7 @@ class InfinitePaginator(Paginator):
         try:
             # no count or num pages
             del self._num_pages, self._count
-        except NameError:
+        except AttributeError:
             pass
         # bonus links
         self.link_template = link_template

@@ -80,7 +80,7 @@ class TestTemplatePaginateTags(TestCase):
         c = Context({"var": range(21), "request": TestHttpRequest()})
         self.assertEqual(
             t.render(c),
-            u'\n\n\n<nav aria-label="Page pagination">\n  <ul class="pagination">\n  \n    <li class="page-item disabled"><a class="page-link" href="#" onclick="javascript: return false;">&laquo;</a></li>\n  \n  \n    \n      \n    <li class="page-item active"><a class="page-link" href="#" onclick="javascript: return false;">1</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=2">2</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=3">3</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=4">4</a></li>\n      \n    \n  \n    \n    <li class="page-item disabled"><a class="page-link" href="#" onclick="javascript: return false;">...</a></li>\n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=8">8</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=9">9</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=10">10</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=11">11</a></li>\n      \n    \n  \n  \n    <li class="page-item"><a class="page-link" href="?page=2">&raquo;</a></li>\n  \n  </ul>\n  \n</nav>\n',
+            '\n\n\n<nav aria-label="Page pagination">\n  <ul class="pagination">\n  \n    <li class="page-item disabled"><a class="page-link" href="#" onclick="javascript: return false;">&laquo;</a></li>\n  \n  \n    \n      \n    <li class="page-item active"><a class="page-link" href="#" onclick="javascript: return false;">1</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=2">2</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=3">3</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=4">4</a></li>\n      \n    \n  \n    \n    <li class="page-item disabled"><a class="page-link" href="#" onclick="javascript: return false;">...</a></li>\n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=8">8</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=9">9</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=10">10</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=11">11</a></li>\n      \n    \n  \n  \n    <li class="page-item"><a class="page-link" href="?page=2">&raquo;</a></li>\n  \n  </ul>\n  \n</nav>\n',
         )
 
     def test_render_range_by_one(self):
@@ -88,7 +88,7 @@ class TestTemplatePaginateTags(TestCase):
         c = Context({"var": range(21), "request": TestHttpRequest()})
         self.assertEqual(
             t.render(c),
-            u'\n\n\n<nav aria-label="Page pagination">\n  <ul class="pagination">\n  \n    <li class="page-item disabled"><a class="page-link" href="#" onclick="javascript: return false;">&laquo;</a></li>\n  \n  \n    \n      \n    <li class="page-item active"><a class="page-link" href="#" onclick="javascript: return false;">1</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=2">2</a></li>\n      \n    \n  \n  \n    <li class="page-item"><a class="page-link" href="?page=2">&raquo;</a></li>\n  \n  </ul>\n  \n</nav>\n',
+            '\n\n\n<nav aria-label="Page pagination">\n  <ul class="pagination">\n  \n    <li class="page-item disabled"><a class="page-link" href="#" onclick="javascript: return false;">&laquo;</a></li>\n  \n  \n    \n      \n    <li class="page-item active"><a class="page-link" href="#" onclick="javascript: return false;">1</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=2">2</a></li>\n      \n    \n  \n  \n    <li class="page-item"><a class="page-link" href="?page=2">&raquo;</a></li>\n  \n  </ul>\n  \n</nav>\n',
         )
 
     def test_render_range_by_twenty(self):
@@ -98,7 +98,7 @@ class TestTemplatePaginateTags(TestCase):
         c = Context({"var": range(21), "request": TestHttpRequest()})
         self.assertEqual(
             t.render(c),
-            u'\n\n\n<nav aria-label="Page pagination">\n  <ul class="pagination">\n  \n    <li class="page-item disabled"><a class="page-link" href="#" onclick="javascript: return false;">&laquo;</a></li>\n  \n  \n    \n      \n    <li class="page-item active"><a class="page-link" href="#" onclick="javascript: return false;">1</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=2">2</a></li>\n      \n    \n  \n  \n    <li class="page-item"><a class="page-link" href="?page=2">&raquo;</a></li>\n  \n  </ul>\n  \n</nav>\n',
+            '\n\n\n<nav aria-label="Page pagination">\n  <ul class="pagination">\n  \n    <li class="page-item disabled"><a class="page-link" href="#" onclick="javascript: return false;">&laquo;</a></li>\n  \n  \n    \n      \n    <li class="page-item active"><a class="page-link" href="#" onclick="javascript: return false;">1</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=2">2</a></li>\n      \n    \n  \n  \n    <li class="page-item"><a class="page-link" href="?page=2">&raquo;</a></li>\n  \n  </ul>\n  \n</nav>\n',
         )
 
     def test_render_range_by_var(self):
@@ -108,7 +108,7 @@ class TestTemplatePaginateTags(TestCase):
         c = Context({"var": range(21), "by": 20, "request": TestHttpRequest()})
         self.assertEqual(
             t.render(c),
-            u'\n\n\n<nav aria-label="Page pagination">\n  <ul class="pagination">\n  \n    <li class="page-item disabled"><a class="page-link" href="#" onclick="javascript: return false;">&laquo;</a></li>\n  \n  \n    \n      \n    <li class="page-item active"><a class="page-link" href="#" onclick="javascript: return false;">1</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=2">2</a></li>\n      \n    \n  \n  \n    <li class="page-item"><a class="page-link" href="?page=2">&raquo;</a></li>\n  \n  </ul>\n  \n</nav>\n',
+            '\n\n\n<nav aria-label="Page pagination">\n  <ul class="pagination">\n  \n    <li class="page-item disabled"><a class="page-link" href="#" onclick="javascript: return false;">&laquo;</a></li>\n  \n  \n    \n      \n    <li class="page-item active"><a class="page-link" href="#" onclick="javascript: return false;">1</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=2">2</a></li>\n      \n    \n  \n  \n    <li class="page-item"><a class="page-link" href="?page=2">&raquo;</a></li>\n  \n  </ul>\n  \n</nav>\n',
         )
 
     def test_render_range_by_var_as_name(self):
@@ -118,7 +118,7 @@ class TestTemplatePaginateTags(TestCase):
         c = Context({"var": list(range(21)), "by": 20, "request": TestHttpRequest()})
         self.assertEqual(
             t.render(c),
-            u"[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]",
+            "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]",
         )
 
 
