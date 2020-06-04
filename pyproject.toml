@@ -38,7 +38,7 @@ pre-commit = "^2.4.0"
 pytest = "^5.4.3"
 coverage = {extras = ["toml"], version = "^5.1"}
 safety = "^1.9.0"
-mypy = "^0.770"
+mypy = "^0.780"
 pytest-django = "^3.9.0"
 
 [tool.coverage.paths]
