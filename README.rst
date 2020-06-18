@@ -1,5 +1,4 @@
-===========================
-django-pagination-bootstrap
+Django Pagination Bootstrap
 ===========================
 
 .. badges-begin
@@ -27,7 +26,7 @@ Django-pagination-bootstrap is an app to easy add pagination in Django_, using `
 Note: This library currently works with Python 3.6+, Django 2.0+ and Bootstrap 3+. For older versions, please use version 1.3.0.
 
 Installation
-============
+------------
 
 To install ``django-pagination-bootstrap`` simply run:
 
@@ -36,7 +35,7 @@ To install ``django-pagination-bootstrap`` simply run:
    pip install django-pagination-bootstrap
 
 Configuration
-=============
+-------------
 
 We need to hook ``django-pagination-bootstrap`` into our project.
 
@@ -107,7 +106,7 @@ This does not take any arguments, but does assume that you have already called a
 That's it! You have now paginated object_list and given users of the site a way to navigate between the different pages--all without touching your views.
 
 Side effects
-============
+------------
 
 A django-paginator_ instance will be injected in the template context as ``paginator``. You can access it as usual:
 
@@ -116,7 +115,7 @@ A django-paginator_ instance will be injected in the template context as ``pagin
    page {{ page }} of {{ paginator.num_pages }}
 
 Optional Settings
-=================
+-----------------
 
 In django-pagination, there are no required settings. There are, however, a small set of optional settings useful for changing the default behavior of the pagination tags. Here's an overview:
 
@@ -139,7 +138,7 @@ The number of orphans allowed. According to the Django documentation, orphans ar
 Determines whether an invalid page raises an Http404 or just sets the invalid_page context variable.  True does the former and False does the latter.
 
 Credits
-=======
+-------
 
 This is based on Eric Florenzano's django-pagination 1.0.7 and is an updated version of https://github.com/tgdn/django-bootstrap-pagination for Django 1.7 or higher.
 
