@@ -263,8 +263,5 @@ def paginate(context, window=DEFAULT_WINDOW, hashtag=""):
         return {}
 
 
-# registers the tags paginate and paginate_bs2 the same function paginate
+# registers the tag paginate
 register.inclusion_tag("pagination.html", takes_context=True, name="paginate")(paginate)
-register.inclusion_tag("paginate_bs2.html", takes_context=True, name="paginate_bs2")(
-    paginate
-)
