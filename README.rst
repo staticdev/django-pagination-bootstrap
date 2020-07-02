@@ -3,17 +3,27 @@ Django Pagination Bootstrap
 
 .. badges-begin
 
-|Travis| |Python Version| |PyPi| |Black| |pre-commit|
+|PyPI| |Python Version| |License|
 
-.. |Travis| image:: https://api.travis-ci.org/staticdev/django-pagination-bootstrap.svg?branch=master
-   :target: https://travis-ci.org/staticdev/django-pagination-bootstrap
+|Tests| |Codecov|
 
-.. |Python Version| image:: https://img.shields.io/pypi/pyversions/django-pagination-bootstrap
-   :target: https://pypi.org/project/django-pagination-bootstrap
-   :alt: Python Version
+|Black| |pre-commit|
+
 .. |PyPi| image:: https://badge.fury.io/py/django-pagination-bootstrap.svg
    :target: https://badge.fury.io/py/django-pagination-bootstrap
    :alt: PyPI
+.. |Python Version| image:: https://img.shields.io/pypi/pyversions/django-pagination-bootstrap
+   :target: https://pypi.org/project/django-pagination-bootstrap
+   :alt: Python Version
+.. |License| image:: https://img.shields.io/pypi/l/django-pagination-bootstrap
+   :target: https://opensource.org/licenses/MIT
+   :alt: License
+.. |Tests| image:: https://github.com/staticdev/django-pagination-bootstrap/workflows/Tests/badge.svg
+   :target: https://github.com/staticdev/django-pagination-bootstrap/actions?workflow=Tests
+   :alt: Tests
+.. |Codecov| image:: https://codecov.io/gh/staticdev/django-pagination-bootstrap/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/staticdev/django-pagination-bootstrap
+   :alt: Codecov
 .. |Black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
    :target: https://github.com/psf/black
    :alt: Black
