@@ -1,13 +1,6 @@
-import io
-
-from django.core.handlers.wsgi import WSGIRequest
 from django.core.paginator import Paginator
-from django.http import HttpRequest as DjangoHttpRequest
-from django.template import Context
-from django.template import Template
 from django.test import TestCase
 
-from django_pagination_bootstrap import middleware
 from django_pagination_bootstrap import paginator
 from django_pagination_bootstrap.templatetags import pagination_tags
 
@@ -70,58 +63,6 @@ class TestPaginator(TestCase):
         self.assertTrue(pg["records"]["last"], 21)
 
 
-class TestHttpRequest(DjangoHttpRequest):
-    page = 1
-
-
-class TestTemplatePaginateTags(TestCase):
-    def test_render_range_by_two(self):
-        t = Template("{% load pagination_tags %}{% autopaginate var 2 %}{% paginate %}")
-        c = Context({"var": range(21), "request": TestHttpRequest()})
-        self.assertEqual(
-            t.render(c),
-            '\n\n\n<nav aria-label="Page pagination">\n  <ul class="pagination">\n  \n    <li class="page-item disabled"><a class="page-link" href="#" onclick="javascript: return false;">&laquo;</a></li>\n  \n  \n    \n      \n    <li class="page-item active"><a class="page-link" href="#" onclick="javascript: return false;">1</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=2">2</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=3">3</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=4">4</a></li>\n      \n    \n  \n    \n    <li class="page-item disabled"><a class="page-link" href="#" onclick="javascript: return false;">...</a></li>\n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=8">8</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=9">9</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=10">10</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=11">11</a></li>\n      \n    \n  \n  \n    <li class="page-item"><a class="page-link" href="?page=2">&raquo;</a></li>\n  \n  </ul>\n  \n</nav>\n',
-        )
-
-    def test_render_range_by_one(self):
-        t = Template("{% load pagination_tags %}{% autopaginate var %}{% paginate %}")
-        c = Context({"var": range(21), "request": TestHttpRequest()})
-        self.assertEqual(
-            t.render(c),
-            '\n\n\n<nav aria-label="Page pagination">\n  <ul class="pagination">\n  \n    <li class="page-item disabled"><a class="page-link" href="#" onclick="javascript: return false;">&laquo;</a></li>\n  \n  \n    \n      \n    <li class="page-item active"><a class="page-link" href="#" onclick="javascript: return false;">1</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=2">2</a></li>\n      \n    \n  \n  \n    <li class="page-item"><a class="page-link" href="?page=2">&raquo;</a></li>\n  \n  </ul>\n  \n</nav>\n',
-        )
-
-    def test_render_range_by_twenty(self):
-        t = Template(
-            "{% load pagination_tags %}{% autopaginate var 20 %}{% paginate %}"
-        )
-        c = Context({"var": range(21), "request": TestHttpRequest()})
-        self.assertEqual(
-            t.render(c),
-            '\n\n\n<nav aria-label="Page pagination">\n  <ul class="pagination">\n  \n    <li class="page-item disabled"><a class="page-link" href="#" onclick="javascript: return false;">&laquo;</a></li>\n  \n  \n    \n      \n    <li class="page-item active"><a class="page-link" href="#" onclick="javascript: return false;">1</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=2">2</a></li>\n      \n    \n  \n  \n    <li class="page-item"><a class="page-link" href="?page=2">&raquo;</a></li>\n  \n  </ul>\n  \n</nav>\n',
-        )
-
-    def test_render_range_by_var(self):
-        t = Template(
-            "{% load pagination_tags %}{% autopaginate var by %}{% paginate %}"
-        )
-        c = Context({"var": range(21), "by": 20, "request": TestHttpRequest()})
-        self.assertEqual(
-            t.render(c),
-            '\n\n\n<nav aria-label="Page pagination">\n  <ul class="pagination">\n  \n    <li class="page-item disabled"><a class="page-link" href="#" onclick="javascript: return false;">&laquo;</a></li>\n  \n  \n    \n      \n    <li class="page-item active"><a class="page-link" href="#" onclick="javascript: return false;">1</a></li>\n      \n    \n  \n    \n      \n    <li class="page-item"><a class="page-link" href="?page=2">2</a></li>\n      \n    \n  \n  \n    <li class="page-item"><a class="page-link" href="?page=2">&raquo;</a></li>\n  \n  </ul>\n  \n</nav>\n',
-        )
-
-    def test_render_range_by_var_as_name(self):
-        t = Template(
-            "{% load pagination_tags %}{% autopaginate var by as foo %}{{ foo }}"
-        )
-        c = Context({"var": list(range(21)), "by": 20, "request": TestHttpRequest()})
-        self.assertEqual(
-            t.render(c),
-            "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]",
-        )
-
-
 class TestInfinitePaginator(TestCase):
     def test_paginate_range_by_two(self):
         pg = paginator.InfinitePaginator(range(20), 2, link_template="/bacon/page/%d")
@@ -169,18 +110,3 @@ class TestFinitePaginator(TestCase):
         self.assertTrue(p2.has_previous())
         self.assertIsNone(p2.next_link())
         self.assertEqual(p2.previous_link(), "/bacon/page/1")
-
-
-class TestPaginationMiddleware(TestCase):
-    def test_append_page_property(self):
-        page_middleware = middleware.PaginationMiddleware()
-        request = WSGIRequest(
-            {
-                "REQUEST_METHOD": "POST",
-                "CONTENT_TYPE": "multipart",
-                "wsgi.input": io.StringIO(),
-            }
-        )
-        page_middleware.process_request(request)
-        self.assertTrue(hasattr(request, "page"))
-        request.upload_handlers.append("asdf")
