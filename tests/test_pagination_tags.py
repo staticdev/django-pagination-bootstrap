@@ -56,3 +56,11 @@ class TestTemplatePaginateTags(TestCase):
             t.render(c),
             "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]",
         )
+
+    def test_render_range_by_var_as_index_error(self):
+        t = template.Template(
+            "{% load pagination_tags %}{% autopaginate var by as %}{{ foo }}"
+        )
+        c = template.Context({"var": range(21), "request": TestHttpRequest()})
+        with self.assertRaises(template.TemplateSyntaxError):
+            t.render(c)
