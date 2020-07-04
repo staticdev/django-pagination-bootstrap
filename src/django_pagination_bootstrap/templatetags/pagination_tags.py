@@ -31,30 +31,28 @@ def do_autopaginate(parser, token):
             context_var = split[as_index + 1]
         except IndexError:
             raise template.TemplateSyntaxError(
-                "Context variable assignment "
-                + "must take the form of {%% %r object.example_set.all ... as "
-                + "context_var_name %%}" % split[0]
+                (
+                    f"Context variable assignment "
+                    f"must take the form of {{% {split[0]} object.example_set.all ... as "
+                    f"context_var_name %}}"
+                )
             )
         del split[as_index : as_index + 2]
     if len(split) == 2:
         return AutoPaginateNode(split[1])
-    elif len(split) == 3:
+    if len(split) == 3:
         return AutoPaginateNode(split[1], paginate_by=split[2], context_var=context_var)
-    elif len(split) == 4:
+    if len(split) == 4:
         try:
             orphans = int(split[3])
         except ValueError:
-            raise template.TemplateSyntaxError(
-                "Got %s, but expected integer." % split[3]
-            )
+            raise template.TemplateSyntaxError(f"Got {split[3]}, but expected integer.")
         return AutoPaginateNode(
             split[1], paginate_by=split[2], orphans=orphans, context_var=context_var
         )
-    else:
-        raise template.TemplateSyntaxError(
-            "%r tag takes one required "
-            + "argument and one optional argument" % split[0]
-        )
+    raise template.TemplateSyntaxError(
+        f"{split[0]} tag takes one required argument and one optional argument"
+    )
 
 
 class AutoPaginateNode(template.Node):
