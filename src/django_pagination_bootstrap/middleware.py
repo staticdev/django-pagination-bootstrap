@@ -1,7 +1,7 @@
 """django-pagination-bootstrap middleware."""
 
 
-def get_page(self):
+def get_page(self) -> int:
     """
     A function which will be monkeypatched onto the request to get the current
     integer representing the current page.
@@ -19,8 +19,8 @@ class PaginationMiddleware:
     it exists in either **GET** or **POST** portions of the request.
     """
 
-    def __init__(self, get_response):
+    def __init__(self, get_response) -> None:
         self.get_response = get_response
 
-    def __call__(self, request):
+    def __call__(self, request) -> None:
         request.__class__.page = property(get_page)

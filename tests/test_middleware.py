@@ -1,16 +1,24 @@
 import io
-from unittest.mock import Mock
-from unittest.mock import patch
 
 from django.core.handlers.wsgi import WSGIRequest
+from django.http import HttpRequest
 from django.test import TestCase
 
+from .test_http_request import TestHttpRequest
 from django_pagination_bootstrap import middleware
 
 
+def test_get_page() -> None:
+    obj = TestHttpRequest()
+    assert middleware.get_page(obj) == 1
+
+
+def test_get_page_invalid() -> None:
+    assert middleware.get_page(HttpRequest()) == 1
+
+
 class TestPaginationMiddleware(TestCase):
-    @patch("django_pagination_bootstrap.middleware.PaginationMiddleware")
-    def test_init(self, pagination_middleware_mock: Mock):
+    def test_init(self):
         pagination_middleware = middleware.PaginationMiddleware("response")
         request = WSGIRequest(
             {
@@ -19,4 +27,4 @@ class TestPaginationMiddleware(TestCase):
                 "wsgi.input": io.StringIO(),
             }
         )
-        assert pagination_middleware.__call__(request)
+        assert pagination_middleware.__call__(request) is None
