@@ -32,9 +32,8 @@ def do_autopaginate(parser, token):
         except IndexError:
             raise template.TemplateSyntaxError(
                 (
-                    f"Context variable assignment "
-                    f"must take the form of {{% {split[0]} object.example_set.all ... as "
-                    f"context_var_name %}}"
+                    f"Context variable assignment must take the form of {{% "
+                    f"{split[0]} object.example_set.all ... as context_var_name %}}"
                 )
             )
         del split[as_index : as_index + 2]
