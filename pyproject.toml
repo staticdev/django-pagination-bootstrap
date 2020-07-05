@@ -50,6 +50,7 @@ source = ["django_pagination_bootstrap"]
 
 [tool.coverage.report]
 show_missing = true
+fail_under = 80
 
 [build-system]
 requires = ["poetry>=0.12"]
