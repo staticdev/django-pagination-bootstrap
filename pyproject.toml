@@ -7,6 +7,7 @@ license = "MIT"
 readme = "README.rst"
 repository = "https://github.com/staticdev/django-pagination-bootstrap"
 homepage = "https://github.com/staticdev/django-pagination-bootstrap"
+documentation = "https://django-pagination-bootstrap.readthedocs.io"
 classifiers = [
     "Environment :: Web Environment",
     "Framework :: Django",
@@ -27,6 +28,9 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
+[tool.poetry.urls]
+Changelog = "https://github.com/staticdev/django-pagination-bootstrap/releases"
+
 [tool.poetry.dependencies]
 python = "^3.6.1"
 django = ">=2.0"
@@ -40,6 +44,9 @@ safety = "^1.9.0"
 mypy = "^0.782"
 pytest-django = "^3.9.0"
 pygments = "^2.6.1"
+xdoctest = "^0.13.0"
+sphinx = "^3.1.2"
+sphinx-autobuild = "^0.7.1"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
