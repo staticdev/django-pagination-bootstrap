@@ -18,7 +18,7 @@ def test_get_page_invalid() -> None:
 
 
 class TestPaginationMiddleware(TestCase):
-    def test_init(self):
+    def test_init(self) -> None:
         pagination_middleware = middleware.PaginationMiddleware("response")
         request = WSGIRequest(
             {
@@ -27,4 +27,4 @@ class TestPaginationMiddleware(TestCase):
                 "wsgi.input": io.StringIO(),
             }
         )
-        assert pagination_middleware.__call__(request) is None
+        pagination_middleware.__call__(request)
