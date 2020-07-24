@@ -18,7 +18,7 @@ INVALID_PAGE_FIXUP = getattr(settings, "PAGINATION_INVALID_PAGE_FIXUP", False)
 
 @register.tag(name="autopaginate")
 def do_autopaginate(parser, token):
-    """Splits the arguments to the autopaginate tag and formats them correctly."""
+    """Split the arguments to the autopaginate tag and formats them correctly."""
     split = token.split_contents()
     as_index = None
     context_var = None
@@ -55,7 +55,7 @@ def do_autopaginate(parser, token):
 
 
 class AutoPaginateNode(template.Node):
-    """Emits the required objects to allow for Digg-style pagination.
+    """Emit the required objects to allow for Digg-style pagination.
 
     First, it looks in the current context for the variable specified, and using
     that object, it emits a simple ``Paginator`` and the current page object
@@ -140,29 +140,27 @@ class AutoPaginateNode(template.Node):
 
 
 def paginate(context, window=DEFAULT_WINDOW, hashtag=""):
-    """Renders the ``pagination.html`` template.
+    """Render the pagination.html template.
 
-    The result is a Digg-like display of the available pages, given the current page.
-    If there are too many pages to be displayed before and after the current page, then
-    elipses will be used to indicate the undisplayed gap between page numbers.
+    Args:
+        context:
+          Dictionary-like data structure and must contain the following keys
+          paginator - a ``Paginator`` or ``QuerySetPaginator`` object.
+          page_obj - the result of calling the page method on the
+          aforementioned ``Paginator`` or ``QuerySetPaginator`` object, given
+          the current page.
+          getvars (optional) - a dictionary of all of the **GET** parameters in the current request.
+          This is useful to maintain certain types of state, even when requesting
+          a different page.
+        window:
+          Optional. Defaults to DEFAULT_WINDOW.
+        hashtag:
+          Optional. Defaults to "".
 
-    Requires one argument, ``context``, which should be a dictionary-like data
-    structure and must contain the following keys:
-
-    ``paginator``
-    A ``Paginator`` or ``QuerySetPaginator`` object.
-
-    ``page_obj``
-    This should be the result of calling the page method on the
-    aforementioned ``Paginator`` or ``QuerySetPaginator`` object, given
-    the current page.
-
-    This same ``context`` dictionary-like data structure may also include:
-
-    ``getvars``
-    A dictionary of all of the **GET** parameters in the current request.
-    This is useful to maintain certain types of state, even when requesting
-    a different page.
+    Returns:
+        A Digg-like display of the available pages, given the current page.
+        If there are too many pages to be displayed before and after the current page, then
+        elipses will be used to indicate the undisplayed gap between page numbers.
     """
     try:
         paginator = context["paginator"]

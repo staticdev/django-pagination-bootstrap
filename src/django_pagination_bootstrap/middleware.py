@@ -2,10 +2,7 @@
 
 
 def get_page(self) -> int:
-    """
-    A function which will be monkeypatched onto the request to get the current
-    integer representing the current page.
-    """
+    """A function which will be monkeypatched onto the request to get the current integer representing the current page."""
     try:
         return int(self.GET.get("page"))
     except (KeyError, ValueError, TypeError):
@@ -20,6 +17,7 @@ class PaginationMiddleware:
     """
 
     def __init__(self, get_response) -> None:
+        """Constructor."""
         self.get_response = get_response
 
     def __call__(self, request) -> None:
