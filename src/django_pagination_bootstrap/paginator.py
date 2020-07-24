@@ -36,7 +36,7 @@ class InfinitePaginator(Paginator):
         self.link_template = link_template
 
     def validate_number(self, number):
-        """Validates the given 1-based page number."""
+        """Validate the given 1-based page number."""
         try:
             number = int(number)
         except ValueError:
@@ -47,7 +47,7 @@ class InfinitePaginator(Paginator):
 
     def page(self, number):
         """
-        Returns a Page object for the given 1-based page number.
+        Return a Page object for the given 1-based page number.
         """
         number = self.validate_number(number)
         bottom = (number - 1) * self.per_page
@@ -62,21 +62,24 @@ class InfinitePaginator(Paginator):
         return InfinitePage(page_items, number, self)
 
     def _get_count(self):
-        """Returns the total number of objects, across all pages."""
+        """Return the total number of objects, across all pages."""
         raise NotImplementedError
 
     count = property(_get_count)
 
     def _get_num_pages(self):
-        """Returns the total number of pages."""
+        """Return the total number of pages."""
         raise NotImplementedError
 
     num_pages = property(_get_num_pages)
 
     def _get_page_range(self):
-        """Returns a 1-based range of pages.
+        """Return a 1-based range of pages.
 
         It is used for iterating through within a template for loop.
+
+        Raises:
+            NotImplementedError: to be implemented.
         """
         raise NotImplementedError
 
@@ -88,17 +91,20 @@ class InfinitePage(Page):
         return "<Page %s>" % self.number
 
     def has_next(self):
-        """Checks for one more item than last on this page."""
+        """Check for one more item than last on this page."""
         try:
             self.paginator.object_list[self.number * self.paginator.per_page]
         except IndexError:
             return False
         return True
 
-    def end_index(self):
-        """Returns the 1-based index of the last object on this page.
+    def end_index(self) -> int:
+        """Return the 1-based index of the last object on this page.
 
         This index is relative to total objects found (hits).
+
+        Returns:
+            int: end index.
         """
         return (self.number - 1) * self.paginator.per_page + len(self.object_list)
 
@@ -156,7 +162,7 @@ class FinitePaginator(InfinitePaginator):
         return number
 
     def page(self, number):
-        """Returns a Page object for the given 1-based page number."""
+        """Return a Page object for the given 1-based page number."""
         number = self.validate_number(number)
         # remove the extra item(s) when creating the page
         page_items = self.object_list[: self.per_page]
@@ -165,7 +171,7 @@ class FinitePaginator(InfinitePaginator):
 
 class FinitePage(InfinitePage):
     def has_next(self):
-        """Checks for one more item than last on this page."""
+        """Check for one more item than last on this page."""
         try:
             self.paginator.object_list[self.paginator.per_page]
         except IndexError:
@@ -173,9 +179,12 @@ class FinitePage(InfinitePage):
         return True
 
     def start_index(self):
-        """Returns the 1-based index of the first object on this page.
+        """Return the 1-based index of the first object on this page.
 
         This index is relative to total objects in the paginator.
+
+        Returns:
+            paginator offset.
         """
         # TODO should this holler if you haven't defined the offset?
         return self.paginator.offset
