@@ -144,18 +144,18 @@ def paginate(context, window=DEFAULT_WINDOW, hashtag=""):
 
     Args:
         context:
-          Dictionary-like data structure and must contain the following keys
-          paginator - a ``Paginator`` or ``QuerySetPaginator`` object.
-          page_obj - the result of calling the page method on the
-          aforementioned ``Paginator`` or ``QuerySetPaginator`` object, given
-          the current page.
-          getvars (optional) - a dictionary of all of the **GET** parameters in the current request.
-          This is useful to maintain certain types of state, even when requesting
-          a different page.
+            Dictionary-like data structure and must contain the following keys
+            paginator - a ``Paginator`` or ``QuerySetPaginator`` object.
+            page_obj - the result of calling the page method on the
+            aforementioned ``Paginator`` or ``QuerySetPaginator`` object, given
+            the current page.
+            getvars (optional) - a dictionary of all of the **GET** parameters in the current request.
+            This is useful to maintain certain types of state, even when requesting
+            a different page.
         window:
-          Optional. Defaults to DEFAULT_WINDOW.
+            Optional. Defaults to DEFAULT_WINDOW.
         hashtag:
-          Optional. Defaults to "".
+            Optional. Defaults to "".
 
     Returns:
         A Digg-like display of the available pages, given the current page.
