@@ -39,7 +39,7 @@ django = ">=2.0"
 black = "^20.8b1"
 pre-commit = "^2.7.1"
 pytest = "^6.0.1"
-coverage = {extras = ["toml"], version = "^5.2"}
+coverage = {extras = ["toml"], version = "^5.3"}
 safety = "^1.9.0"
 mypy = "^0.782"
 pytest-django = "^3.9.0"
