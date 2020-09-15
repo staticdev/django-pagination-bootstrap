@@ -42,7 +42,7 @@ pytest = "^6.0.1"
 coverage = {extras = ["toml"], version = "^5.3"}
 safety = "^1.9.0"
 mypy = "^0.782"
-pytest-django = "^3.9.0"
+pytest-django = "^3.10.0"
 pygments = "^2.6.1"
 xdoctest = "^0.15.0"
 sphinx = "^3.2.1"
