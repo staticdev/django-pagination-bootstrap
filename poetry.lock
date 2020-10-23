@@ -636,7 +636,7 @@ testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xm
 
 [[package]]
 name = "pytest-django"
-version = "4.0.0"
+version = "4.1.0"
 description = "A Django plugin for pytest."
 category = "dev"
 optional = false
@@ -1021,7 +1021,7 @@ testing = ["jaraco.itertools", "func-timeout"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6.1"
-content-hash = "47113dc4b6dfd692302b575dfb67e1f2d331c5f45efc76f8a0cb66e157467e80"
+content-hash = "49ad2668de6f9e458cfa809335f9e2f6aac48fa583a552adbd7ecd236455b64e"
 
 [metadata.files]
 alabaster = [
@@ -1328,8 +1328,8 @@ pytest = [
     {file = "pytest-6.1.1.tar.gz", hash = "sha256:8f593023c1a0f916110285b6efd7f99db07d59546e3d8c36fc60e2ab05d3be92"},
 ]
 pytest-django = [
-    {file = "pytest-django-4.0.0.tar.gz", hash = "sha256:5f964ccda1f551e00589ab0679a7c45c36c509a44b5bfb5ad07954e0ae3f4bed"},
-    {file = "pytest_django-4.0.0-py2.py3-none-any.whl", hash = "sha256:0e91003fdd41ac0322c1978682be2ca180bc564203dd53c698f99242bf513614"},
+    {file = "pytest-django-4.1.0.tar.gz", hash = "sha256:26f02c16d36fd4c8672390deebe3413678d89f30720c16efb8b2a6bf63b9041f"},
+    {file = "pytest_django-4.1.0-py3-none-any.whl", hash = "sha256:10e384e6b8912ded92db64c58be8139d9ae23fb8361e5fc139d8e4f8fc601bc2"},
 ]
 pytz = [
     {file = "pytz-2020.1-py2.py3-none-any.whl", hash = "sha256:a494d53b6d39c3c6e44c3bec237336e14305e4f29bbf800b599253057fbb79ed"},
