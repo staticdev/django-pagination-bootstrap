@@ -171,7 +171,7 @@ toml = ["toml"]
 
 [[package]]
 name = "darglint"
-version = "1.5.6"
+version = "1.5.8"
 description = "A utility for ensuring Google-style docstrings stay up to date with the source code."
 category = "dev"
 optional = false
@@ -1024,7 +1024,7 @@ testing = ["jaraco.itertools", "func-timeout"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6.1"
-content-hash = "e16684f12c7edb0fb075045fff5758cd804d21a4d3349ae7bfec6b3bf146882b"
+content-hash = "83bc1a3af67364fc669fbf7f7ee7629965f225316760fc023041df744d3eaed7"
 
 [metadata.files]
 alabaster = [
@@ -1123,8 +1123,8 @@ coverage = [
     {file = "coverage-5.3.tar.gz", hash = "sha256:280baa8ec489c4f542f8940f9c4c2181f0306a8ee1a54eceba071a449fb870a0"},
 ]
 darglint = [
-    {file = "darglint-1.5.6-py3-none-any.whl", hash = "sha256:6fcef385e646c4da9ea6fc547e28c77a33ae0cba4806b8585ae18a490a797e82"},
-    {file = "darglint-1.5.6.tar.gz", hash = "sha256:98acb4064bae73ec02146cb123dd3c930bd5272e562ad4d19c59857443632dd1"},
+    {file = "darglint-1.5.8-py3-none-any.whl", hash = "sha256:2e1012945a09d19a15cc87f9d15e7b14c18473ec9cf7769c641951b348de1353"},
+    {file = "darglint-1.5.8.tar.gz", hash = "sha256:529f4969029d5ff5f74bfec48adc14b6f003409141f722b6cc4b787dddc8a4dd"},
 ]
 dataclasses = [
     {file = "dataclasses-0.6-py3-none-any.whl", hash = "sha256:454a69d788c7fda44efd71e259be79577822f5e3f53f029a22d08004e951dc9f"},
