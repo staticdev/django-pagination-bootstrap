@@ -97,7 +97,7 @@ def precommit(session: Session) -> None:
 @nox.session(python="3.8")
 def safety(session: Session) -> None:
     """Scan dependencies for insecure packages."""
-    requirements = nox_poetry.export_requirements(session, dev=True)
+    requirements = nox_poetry.export_requirements(session)
     session.install("safety")
     session.run("safety", "check", f"--file={requirements}", "--bare")
 
