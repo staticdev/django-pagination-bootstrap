@@ -22,3 +22,5 @@ class PaginationMiddleware:
 
     def __call__(self, request) -> None:
         request.__class__.page = property(get_page)
+        response = self.get_response(request)
+        return response
