@@ -32,7 +32,7 @@ classifiers = [
 Changelog = "https://github.com/staticdev/django-pagination-bootstrap/releases"
 
 [tool.poetry.dependencies]
-python = "^3.6.1"
+python = "^3.7.0"
 django = ">=2.0"
 
 [tool.poetry.dev-dependencies]

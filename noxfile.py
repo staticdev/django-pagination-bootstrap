@@ -10,13 +10,14 @@ from nox.sessions import Session
 
 
 package = "django_pagination_bootstrap"
-python_versions = ["3.9", "3.8", "3.7", "3.6"]
+python_versions = ["3.9", "3.8", "3.7"]
 nox.options.sessions = (
     "pre-commit",
     "safety",
     "mypy",
     "tests",
     "typeguard",
+    "xdoctest",
     "docs-build",
 )
 
