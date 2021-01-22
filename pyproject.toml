@@ -57,7 +57,7 @@ pre-commit-hooks = "^3.4.0"
 reorder-python-imports = "^2.3.6"
 typeguard = "^2.10.0"
 nox-poetry = "0.7.1"
-mypy = "0.782"
+mypy = "0.800"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
