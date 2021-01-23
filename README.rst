@@ -1,6 +1,8 @@
 Django Pagination Bootstrap
 ===========================
 
+**MAINTAINER NEEDED: this project is complete but won't be updated until further notice. If you have interest in improving it, please contact me by creating an** `issue here`_ **.**
+
 .. badges-begin
 
 |PyPI| |Python Version| |License|
@@ -152,6 +154,7 @@ Credits
 
 This is based on Eric Florenzano's django-pagination 1.0.7 and is an updated version of https://github.com/tgdn/django-bootstrap-pagination for Django 1.7 or higher.
 
+.. _issue here: https://github.com/staticdev/staticdev/issues
 .. _Django: https://www.djangoproject.com/
 .. _Bootstrap: http://getbootstrap.com/
 .. _django-pagination: https://pypi.python.org/pypi/django-pagination
