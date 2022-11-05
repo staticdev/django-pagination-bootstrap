@@ -35,7 +35,7 @@ def do_autopaginate(parser, token):
                     f"Context variable assignment must take the form of {{% "
                     f"{split[0]} object.example_set.all ... as context_var_name %}}"
                 )
-            )
+            ) from None
         del split[as_index : as_index + 2]
     if len(split) == 2:
         return AutoPaginateNode(split[1])
@@ -45,7 +45,9 @@ def do_autopaginate(parser, token):
         try:
             orphans = int(split[3])
         except ValueError:
-            raise template.TemplateSyntaxError(f"Got {split[3]}, but expected integer.")
+            raise template.TemplateSyntaxError(
+                f"Got {split[3]}, but expected integer."
+            ) from None
         return AutoPaginateNode(
             split[1], paginate_by=split[2], orphans=orphans, context_var=context_var
         )
@@ -105,7 +107,7 @@ class AutoPaginateNode(template.Node):
                 raise Http404(
                     "Invalid page requested.  If DEBUG were set to "
                     + "False, an HTTP 404 page would have been shown instead."
-                )
+                ) from None
 
             if INVALID_PAGE_FIXUP:
                 # if we're fixing up an invalid page in the request then we
