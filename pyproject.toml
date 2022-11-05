@@ -2,7 +2,7 @@
 name = "django-pagination-bootstrap"
 version = "2.4.4"
 description = "Easy add pagination in Django, using Bootstrap's layout."
-authors = ["Thiago Carvalho D'Ávila <thiagocavila@gmail.com>"]
+authors = ["staticdev <staticdev-support@proton.me>"]
 license = "MIT"
 readme = "README.rst"
 repository = "https://github.com/staticdev/django-pagination-bootstrap"
