@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-pagination-bootstrap"
-version = "2.4.5"
+version = "2.4.4"
 description = "Easy add pagination in Django, using Bootstrap's layout."
 authors = ["staticdev <staticdev-support@proton.me>"]
 license = "MIT"
