@@ -10,7 +10,7 @@
   {% endif %}
   {% for page in pages %}
     {% if page %}
-      {% if page==page_obj.number %}
+      {% if page == page_obj.number %}
     <li class="page-item active"><a class="page-link" href="#" onclick="javascript: return false;">{{ page }}</a></li>
       {% else %}
     <li class="page-item"><a class="page-link" href="?page={{ page }}{{ getvars }}{{ hashtag }}">{{ page }}</a></li>
